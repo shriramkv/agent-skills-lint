@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-skills-lint"
+version = "0.1.0"
+description = "Lint, grade and security-check Agent Skills (SKILL.md) folders"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Dr. Shriram K Vasudevan" }]
+keywords = ["agent-skills", "skill.md", "agents", "lint", "security", "aaif"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.optional-dependencies]
+yaml = ["PyYAML>=5.1"]
+
+[project.urls]
+Homepage = "https://github.com/shriramkv/agent-skills-lint"
+Specification = "https://agentskills.io/specification"
+
+[project.scripts]
+agent-skills-lint = "agent_skills_lint.cli:main"
+
+[tool.setuptools]
+packages = ["agent_skills_lint"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+agent_skills_lint = ["samples/**/*", "samples/**/.*"]
